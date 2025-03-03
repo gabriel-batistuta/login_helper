@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Helper</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 10px;
+      width: 300px;
+      background: #f2f2f2;
+      color: #333;
+    }
+    .header {
+      background: #343a40;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .container {
+      max-height: 300px;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    label {
+      margin-top: 10px;
+      display: block;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      background: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    button.secondary {
+      background: #6c757d;
+    }
+    button.secondary:hover {
+      background: #5a6268;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <!-- Tela principal: lista de logins salvos -->
+  <div id="main-view">
+    <div class="header">
+      <h3>Logins Salvos</h3>
+    </div>
+    <div class="container" id="login-list">
+      <!-- Lista de logins será inserida aqui -->
+    </div>
+    <button id="add-login-btn">Adicionar Novo Login</button>
+  </div>
+
+  <!-- Tela de cadastro de novo login -->
+  <div id="add-login-view" class="hidden">
+    <div class="header">
+      <h3>Adicionar Novo Login</h3>
+    </div>
+    <label>URL do localhost:</label>
+    <input type="text" id="url" placeholder="http://localhost:8000">
+    
+    <label>ID/Classe do campo de usuário:</label>
+    <input type="text" id="usernameField" placeholder="#login-email">
+    
+    <label>ID/Classe do campo de senha:</label>
+    <input type="text" id="passwordField" placeholder="#login-password">
+    
+    <label>Usuário:</label>
+    <input type="text" id="username" placeholder="Seu usuário ou email">
+    
+    <label>Senha:</label>
+    <input type="password" id="password" placeholder="Sua senha">
+    
+    <button id="save-login-btn">Salvar</button>
+    <button id="back-from-add" class="secondary">Voltar</button>
+  </div>
+
+  <!-- Tela de detalhes do login selecionado -->
+  <div id="login-detail-view" class="hidden">
+    <div class="header">
+      <h3>Detalhes do Login</h3>
+    </div>
+    <div id="login-details">
+      <!-- Detalhes serão preenchidos dinamicamente -->
+    </div>
+    <button id="fill-login-btn">Preencher Dados</button>
+    <button id="edit-login-btn">Editar</button>
+    <button id="delete-login-btn" class="secondary">Excluir</button>
+    <button id="back-from-detail" class="secondary">Voltar</button>
+  </div>
+</body>
+</html>
